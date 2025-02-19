@@ -1,4 +1,4 @@
-import { USA} from "../interfaces/type.ts";
+//import { USA} from "../interfaces/type.ts";
 import { styled } from "styled-components";
 
 const USAPreviewDiv = styled.div`
@@ -8,12 +8,17 @@ width: 20rem;
 background-color: lightblue;
 `
 
+interface USA {
+    Nation: string;
+    Population: number;
+    Year: string;
+}
 export function USAPreview ({usa}: {usa: USA}) {
     return (
         <USAPreviewDiv>
-            <h3>{usa.nation}</h3>
-            <p>{usa.population}</p>
-            <p>{usa.year}</p>
+            <h3>{usa.Nation}</h3>
+            <p>Population: {usa.Population.toLocaleString()}</p>
+            <p>Year: {usa.Year}</p>
         </USAPreviewDiv>
     )
 }
