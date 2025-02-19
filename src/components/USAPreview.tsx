@@ -11,9 +11,9 @@ background-color: lightblue;
 export function USAPreview ({usa}: {usa: USA}) {
     return (
         <USAPreviewDiv>
-            <h3>{usa.title}</h3>
-            <p>{usa.place_of_origin}</p>
-            <p>{usa.medium_display}</p>
+            <h3>{usa.nation}</h3>
+            <p>{usa.population}</p>
+            <p>{usa.year}</p>
         </USAPreviewDiv>
     )
 }

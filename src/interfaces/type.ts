@@ -6,12 +6,7 @@ export type Thumbnail = {
 }
 
 export type USA= {
-    id: number;
-    title: string;
-    thumbnail: Thumbnail;
-    place_of_origin: string;
-    medium_display: string;
-    is_public_domain: boolean;
-    is_on_view: boolean;
-    image_id: string;
+    nation: string;
+    population: number;
+    year: number;
 }

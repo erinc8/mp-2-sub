@@ -8,7 +8,7 @@ export default function USAListContent() {
 
     useEffect(() => {
         async function getUSA() {
-            const res = await fetch (`https://datausa.io/api/data?drilldowns=Nation&measures=Populationlimit=${numUSA}`);
+            const res = await fetch (`https://datausa.io/api/data?drilldowns=Nation&measures=Population&limit=${numUSA}`);
             const data = await res.json();
             setUSA(data.data);
         }
