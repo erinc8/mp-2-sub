@@ -1,19 +1,25 @@
 import {useState, useEffect} from "react";
 import {USAPreview} from "./USAPreview.tsx"
-//import {USA} from  "../interfaces/type.ts"
+import {USA} from  "../interfaces/type.ts"
 
 export default function USAListContent() {
     const [numUSA, setNumUSA] = useState(5);
     const [usa, setUSA] = useState<USA[]>([]);
 
     useEffect(() => {
-        async function getUSA() {
-            const res = await fetch (`https://datausa.io/api/data?drilldowns=Nation&measures=Population&limit=${numUSA}`);
-            const data = await res.json();
-            setUSA(data.data);
+        async function fetchData(): Promise<void> {
+            try {
+                const rawData = await fetch("https://datausa.io/api/data?drilldowns=Nation&measures=Population");
+                const {data} : {data: USA[]} = await rawData.json();
+                setUSA(data);
+                console.log("Data fetched successfully");
+            } catch (e) {
+                console.error("There was an error:", e);
+
+            }
         }
-        getUSA();
-    })
+        fetchData();
+    }, []);
 
 
 
@@ -23,7 +29,7 @@ export default function USAListContent() {
     return (
         <div>
             <input type = "number"
-                   placeholder="Number of artworks"
+                   placeholder="Number of datapoints"
                    value = {numUSA}
                    onChange={(e) => setNumUSA(Number(e.target.value))} />
             <div>
