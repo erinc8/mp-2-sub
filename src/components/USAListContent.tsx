@@ -3,7 +3,7 @@ import {USAPreview} from "./USAPreview.tsx"
 import {USA} from  "../interfaces/type.ts"
 
 export default function USAListContent() {
-    const [numUSA, setNumUSA] = useState(5);
+
     const [usa, setUSA] = useState<USA[]>([]);
 
     useEffect(() => {
@@ -28,12 +28,10 @@ export default function USAListContent() {
 
     return (
         <div>
-            <input type = "number"
-                   placeholder="Number of datapoints"
-                   value = {numUSA}
-                   onChange={(e) => setNumUSA(Number(e.target.value))} />
+
+
             <div>
-                <p>numUSA: {numUSA}</p>
+
                 {
                     usa.map((usa => <USAPreview usa={usa} />))
                 }
