@@ -21,15 +21,8 @@ export default function USAListContent() {
         fetchData();
     }, []);
 
-
-
-
-
-
     return (
         <div>
-
-
             <div>
 
                 {
